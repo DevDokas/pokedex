@@ -1,0 +1,31 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard-with-typescript",
+        "airbnb-typescript/base",
+        "plugin:styled-components-a11y/recommended"
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": ["./tsconfig.json"]
+    },
+    "plugins": [
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "styled-components-a11y"
+    ],
+    "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "styled-components-a11y/rule-name": 0,
+        "react/react-in-jsx-scope": "off"
+    }
+}
