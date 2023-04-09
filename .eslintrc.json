@@ -20,12 +20,14 @@
         "react",
         "react-hooks",
         "@typescript-eslint",
+        "prettier",
         "styled-components-a11y"
     ],
     "rules": {
+        "prettier/prettier": "error",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        "styled-components-a11y/rule-name": 0,
-        "react/react-in-jsx-scope": "off"
+        "react/react-in-jsx-scope": "off",
+        "styled-components-a11y/rule-name": 0
     }
 }
