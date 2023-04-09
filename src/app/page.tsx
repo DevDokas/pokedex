@@ -1,3 +1,11 @@
+import React from 'react';
+
+import { Msg } from '@/components/Msg';
+
 export default function Home(): any {
-  return <main></main>;
+  return (
+    <main>
+      <Msg />
+    </main>
+  );
 }
