@@ -1,11 +1,16 @@
+'use client';
 import React from 'react';
 
-import { Msg } from '@/components/Msg';
+import { Header, IconImage, SearchBar } from '@/components/mainPageComponents';
 
 export default function Home(): any {
   return (
     <main>
-      <Msg />
+      <Header>
+        <IconImage src="#" />
+        <SearchBar type="text" />
+      </Header>
+      <h1>oi</h1>
     </main>
   );
 }
