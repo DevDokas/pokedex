@@ -54,10 +54,14 @@ export default function Home(): any {
         {fullPokeList.map((pokemon: any, i: any) => {
           return (
             <PokeContainer key={pokemon.id}>
-              <PokeName>{pokemon.name}</PokeName>
+              <PokeName>{pokemon.name.replace('-', ' ')}</PokeName>
               <PokeTypes>
-                {pokemon.types[0].type.name}
-                {pokemon.types[1] ? <p>{pokemon.types[1].type.name}</p> : null}
+                <p>{pokemon.types[0].type.name}</p>
+                <p>
+                  {pokemon.types[1] ? (
+                    <p>{pokemon.types[1].type.name}</p>
+                  ) : null}
+                </p>
               </PokeTypes>
               <PokeImage src={pokemon.sprites.front_default} alt="" />
             </PokeContainer>

@@ -55,7 +55,9 @@ export const PokeContainer = styled.div`
   background-color: ${secondaryColor};
 `;
 
-export const PokeName = styled.h2``;
+export const PokeName = styled.h2`
+  text-transform: capitalize;
+`;
 
 export const PokeTypes = styled.h3``;
 
