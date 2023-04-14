@@ -18,6 +18,7 @@ export const Header = styled.header`
   background-color: ${primaryColor};
   border: 0;
   border-radius: 0 0 1.5vh 1.5vh;
+  z-index: 1;
 `;
 
 export const IconImage = styled.img`
@@ -43,16 +44,19 @@ export const SearchBar = styled.input`
 export const BodyContainer = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin-top: 12.5vh;
+  padding: 0 1vw 0 1vw;
+  z-index: 0;
 `;
 
 export const PokeContainer = styled.div`
+  position: relative;
   display: flex;
-  height: 10vh;
-  width: 95%;
+  height: 20vh;
+  width: 100%;
   border-bottom: 0.3vh solid ${terciaryColor};
   background-color: ${secondaryColor};
+  overflow: hidden;
 `;
 
 export const PokeName = styled.h2`
@@ -61,6 +65,12 @@ export const PokeName = styled.h2`
 
 export const PokeTypes = styled.h3``;
 
-export const PokeImage = styled.img``;
+export const PokeImage = styled.img`
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 60%;
+  left: 50%;
+  height: 80%;
+`;
 
 export const PoisonType = styled.div``;
