@@ -1,5 +1,6 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 import pokeBackground from '@/assets/background.png';
 import icon from '@/assets/icon.png';
@@ -14,7 +15,8 @@ import {
   PokeTypes,
   PokeImageContainer,
   PokeBackground,
-  PokeImage
+  PokeImage,
+  ModalContainer
 } from '@/components/mainPageComponents';
 import {
   BugType,
@@ -35,11 +37,12 @@ import {
   RockType,
   SteelType,
   WaterType
-} from '@/components/pokeTypes';
+} from '@/components/mainPageComponents/pokeTypes';
 
 export default function Home(): any {
   const [inputSearch, setInputSearch] = useState('');
   const [fullPokeList, setFullPokeList] = useState<any>([]);
+  const router = useRouter();
 
   const fetchPokemon = (): void => {
     const getPokemonUrl = (id: number): string =>
@@ -60,6 +63,11 @@ export default function Home(): any {
   };
 
   fetchPokemon();
+
+  function redirectPage(pokemon: any): void {
+    router.push(`/pokemon/${pokemon.id}`);
+    return pokemon.id;
+  }
 
   return (
     <main>
@@ -114,7 +122,12 @@ export default function Home(): any {
             }
           };
           return (
-            <PokeContainer key={pokemon.id}>
+            <PokeContainer
+              key={pokemon.id}
+              onClick={() => {
+                redirectPage(pokemon);
+              }}
+            >
               <PokeInfosContainer>
                 <PokeName>{pokemon.name.replace('-', ' ')}</PokeName>
                 <PokeTypes>

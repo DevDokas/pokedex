@@ -36,7 +36,7 @@ export const ElectricType = styled.p`
   padding: 0.5vh 2vh 0.5vh 2vh;
   border: 1px solid black;
   border-radius: 1vh;
-  background-image: radial-gradient(#fff588, #e3e152);
+  background-image: radial-gradient(#e4d858, #dad739);
   font-weight: 600;
 `;
 

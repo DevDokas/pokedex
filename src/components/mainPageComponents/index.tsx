@@ -1,3 +1,4 @@
+import pokeBackground from '@/assets/background.png';
 import {
   primaryColor,
   secondaryColor,
@@ -89,7 +90,10 @@ export const PokeImageContainer = styled.div`
   max-width: 50%;
 `;
 
-export const PokeBackground = styled.img``;
+export const PokeBackground = styled.img`
+  height: 100%;
+  width: 100%;
+`;
 
 export const PokeImage = styled.img`
   position: absolute;
@@ -98,4 +102,11 @@ export const PokeImage = styled.img`
   left: 75%;
   height: 80%;
   filter: drop-shadow(5px 5px 4px #1d1d1f);
+`;
+
+export const ModalContainer = styled.div`
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
 `;
