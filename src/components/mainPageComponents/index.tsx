@@ -1,4 +1,3 @@
-import pokeBackground from '@/assets/background.png';
 import {
   primaryColor,
   secondaryColor,
