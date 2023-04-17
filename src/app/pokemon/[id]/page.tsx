@@ -36,8 +36,6 @@ export default function PokePage(): unknown {
   const page = pathname.split('/');
   const id = page[2];
 
-  console.log(id);
-
   useEffect(() => {
     const getPokemonUrl = (): string =>
       ` https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -57,12 +55,6 @@ export default function PokePage(): unknown {
       setPokeForms(Pokemon.forms);
     });
   }, [id, pokeInfos, pokeImage, pokeMoves]);
-
-  const fetchPokemon = (): void => {};
-
-  fetchPokemon();
-
-  console.log(pokeForms);
 
   return (
     <Container>
@@ -102,7 +94,14 @@ export default function PokePage(): unknown {
           <PokemonAbilitiesWrap>
             {pokeAbilities?.map((skills: any, i: any) => {
               return (
-                <PokemonAbility key={i}>{skills.ability.name}</PokemonAbility>
+                <PokemonAbility
+                  onClick={() => {
+                    router.push(`/ability/${skills.ability.name}`);
+                  }}
+                  key={i}
+                >
+                  {skills.ability.name}
+                </PokemonAbility>
               );
             })}
           </PokemonAbilitiesWrap>
