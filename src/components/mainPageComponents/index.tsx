@@ -64,9 +64,15 @@ export const PokeInfosContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 2.5vh 1.5vh 2.5vh 1.5vh;
+  padding: 2.5vh 2vh 2.5vh 1vh;
   width: 50%;
   max-width: 50%;
+`;
+
+export const PokeId = styled.h2`
+  color: #141414;
+  font-size: 2.3vh;
+  font-weight: 700;
 `;
 
 export const PokeName = styled.h2`
@@ -79,14 +85,16 @@ export const PokeTypes = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1vh;
+  justify-content: center;
+  gap: 0.5vh;
   height: 4vh;
-  width: 100%;
+  width: min-content;
 `;
 
 export const PokeImageContainer = styled.div`
   width: 50%;
   max-width: 50%;
+  overflow: hidden;
 `;
 
 export const PokeBackground = styled.img`

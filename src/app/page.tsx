@@ -11,12 +11,12 @@ import {
   BodyContainer,
   PokeContainer,
   PokeInfosContainer,
+  PokeId,
   PokeName,
   PokeTypes,
   PokeImageContainer,
   PokeBackground,
-  PokeImage,
-  ModalContainer
+  PokeImage
 } from '@/components/mainPageComponents';
 import {
   BugType,
@@ -80,7 +80,7 @@ export default function Home(): any {
         <SearchBar
           type="text"
           onChange={(e) => {
-            setInputSearch(e.target.value);
+            setInputSearch(e.target.value.toLowerCase());
           }}
         />
       </Header>
@@ -134,6 +134,7 @@ export default function Home(): any {
                   }}
                 >
                   <PokeInfosContainer>
+                    <PokeId>#{String(pokemon.id).padStart(3, '0')}</PokeId>
                     <PokeName>{pokemon.name.replace('-', ' ')}</PokeName>
                     <PokeTypes>
                       {TypeEmblem(pokemon.types[0].type.name)}
@@ -197,6 +198,7 @@ export default function Home(): any {
                   }}
                 >
                   <PokeInfosContainer>
+                    <PokeId>#{String(pokemon.id).padStart(3, '0')}</PokeId>
                     <PokeName>{pokemon.name.replace('-', ' ')}</PokeName>
                     <PokeTypes>
                       {TypeEmblem(pokemon.types[0].type.name)}
