@@ -14,7 +14,10 @@ import {
   PokemonInfos,
   PokemonMoves,
   PokemonMovesContainer,
-  PokemonAbilities,
+  PokemonMovesWrap,
+  PokemonAbilitiesContainer,
+  PokemonAbilitiesWrap,
+  PokemonAbility,
   PokeImageContainer,
   PokeImageBackground,
   PokeImageSprite
@@ -22,6 +25,7 @@ import {
 
 export default function PokePage(): unknown {
   const [pokeInfos, setPokeInfos] = useState<any>([]);
+  const [pokeForms, setPokeForms] = useState<any>([]);
   const [pokeAbilities, setPokeAbilities] = useState<any>([]);
   const [pokeMoves, setPokeMoves] = useState<any>([]);
   const [pokeImage, setPokeImage] = useState<any>([]);
@@ -45,19 +49,18 @@ export default function PokePage(): unknown {
     Promise.all(pokemonPromises).then((pokemons) => {
       const Pokemon = pokemons[0];
       setPokeInfos(Pokemon);
-      const pokemonAbilitiesList = [];
-      const pokemonMovesList = [];
-      pokemonAbilitiesList.push(pokeInfos.abilities);
-      pokemonMovesList.push(pokeInfos.moves);
-      setPokeAbilities(pokemonAbilitiesList.shift());
-      setPokeMoves(pokemonMovesList.shift());
+      setPokeAbilities(Pokemon.abilities);
+      setPokeMoves(Pokemon.moves);
       setPokeImage(Pokemon.sprites.front_default);
+      setPokeForms(Pokemon.forms);
     });
   }, [id, pokeInfos, pokeImage, pokeMoves]);
 
   const fetchPokemon = (): void => {};
 
   fetchPokemon();
+
+  console.log(pokeForms);
 
   return (
     <Container>
@@ -77,24 +80,33 @@ export default function PokePage(): unknown {
           <PokeImageSprite src={pokeImage} alt="" />
         </PokeImageContainer>
         <PokemonInfos>
-          <h1>Infos basicas do Pokemon</h1>
+          <h1>Informações Básicas</h1>
           <p>Altura: {pokeInfos.height / 10}m</p>
           <p>Peso: {pokeInfos.weight / 10} Kg</p>
+          <p>EXP ao derrotar: {pokeInfos.base_experience}</p>
         </PokemonInfos>
-        <PokemonMoves>
-          <h1>Movimentos</h1>
-          <PokemonMovesContainer>
-            {pokeMoves?.map((move: any, i: any) => {
-              return <h3 key={i}>{move.move.name.replace('-', ' ')}</h3>;
-            })}
-          </PokemonMovesContainer>
-        </PokemonMoves>
-        <PokemonAbilities>
+        <PokemonAbilitiesContainer>
           <h1>Habilidades</h1>
-          {pokeAbilities?.map((skills: any, i: any) => {
-            return <h3 key={i}>{skills.ability.name}</h3>;
-          })}
-        </PokemonAbilities>
+          <PokemonAbilitiesWrap>
+            {pokeAbilities?.map((skills: any, i: any) => {
+              return (
+                <PokemonAbility key={i}>{skills.ability.name}</PokemonAbility>
+              );
+            })}
+          </PokemonAbilitiesWrap>
+        </PokemonAbilitiesContainer>
+        <PokemonMovesContainer>
+          <h1>Movimentos</h1>
+          <PokemonMovesWrap>
+            {pokeMoves?.map((move: any, i: any) => {
+              return (
+                <PokemonMoves key={i}>
+                  {move.move.name.replace('-', ' ')}
+                </PokemonMoves>
+              );
+            })}
+          </PokemonMovesWrap>
+        </PokemonMovesContainer>
       </Body>
     </Container>
   );

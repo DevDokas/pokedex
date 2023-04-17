@@ -1,4 +1,8 @@
-import { primaryColor } from '@/config/colorPallet';
+import {
+  primaryColor,
+  secondaryColor,
+  terciaryColor
+} from '@/config/colorPallet';
 import styled from 'styled-components';
 export const Container = styled.div``;
 
@@ -22,7 +26,9 @@ export const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 0 1.5vh 0;
   width: 100vw;
+  gap: 1vh;
 `;
 
 export const Icon = styled.img`
@@ -39,27 +45,76 @@ export const PokemonInfos = styled.div`
   height: auto;
   width: 90%;
   padding: 3vh;
-  background-color: #ff0055;
-  z-index: 3;
-`;
-
-export const PokemonMoves = styled.div`
-  height: auto;
-  width: 90%;
-  padding: 3vh;
-  background-color: #00ff00;
+  border: 0;
+  border-radius: 1vh;
+  color: ${terciaryColor};
+  background-color: ${secondaryColor};
 `;
 
 export const PokemonMovesContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
-
-export const PokemonAbilities = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 1.5vh;
   height: auto;
   width: 90%;
   padding: 3vh;
-  background-color: blue;
+  border: 0;
+  border-radius: 1vh;
+  text-transform: capitalize;
+  color: ${terciaryColor};
+  background-color: ${secondaryColor};
+`;
+
+export const PokemonMovesWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  width: 100%;
+`;
+
+export const PokemonMoves = styled.h3`
+  text-align: center;
+  width: 100%;
+  padding: 1vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-radius: 1vh;
+`;
+
+export const PokemonAbilitiesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 1.5vh;
+  height: auto;
+  width: 90%;
+  padding: 3vh;
+  border: 0;
+  border-radius: 1vh;
+  text-transform: capitalize;
+  color: ${terciaryColor};
+  background-color: ${secondaryColor};
+`;
+
+export const PokemonAbilitiesWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  width: 100%;
+`;
+
+export const PokemonAbility = styled.h3`
+  text-align: center;
+  width: 100%;
+  padding: 1vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 0;
+  border-radius: 1vh;
 `;
 
 export const PokeImageContainer = styled.div`
@@ -68,6 +123,8 @@ export const PokeImageContainer = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
+  border: 0;
+  border-radius: 1vh;
   overflow: hidden;
 `;
 
