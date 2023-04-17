@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import pokeBackground from '@/assets/background.png';
 import icon from '@/assets/icon.png';
@@ -44,7 +44,7 @@ export default function Home(): any {
   const [fullPokeList, setFullPokeList] = useState<any>([]);
   const router = useRouter();
 
-  const fetchPokemon = (): void => {
+  useEffect(() => {
     const getPokemonUrl = (id: number): string =>
       ` https://pokeapi.co/api/v2/pokemon/${id}`;
 
@@ -60,9 +60,7 @@ export default function Home(): any {
       const Pokemons = pokemons;
       setFullPokeList(Pokemons);
     });
-  };
-
-  fetchPokemon();
+  }, []);
 
   function redirectPage(pokemon: any): any {
     router.push(`/pokemon/${pokemon.id}`);

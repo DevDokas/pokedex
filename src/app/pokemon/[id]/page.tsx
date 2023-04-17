@@ -111,7 +111,12 @@ export default function PokePage(): unknown {
           <PokemonMovesWrap>
             {pokeMoves?.map((move: any, i: any) => {
               return (
-                <PokemonMoves key={i}>
+                <PokemonMoves
+                  onClick={() => {
+                    router.push(`/move/${move.move.name}`);
+                  }}
+                  key={i}
+                >
                   {move.move.name.replace('-', ' ')}
                 </PokemonMoves>
               );
