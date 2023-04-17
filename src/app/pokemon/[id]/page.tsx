@@ -11,6 +11,8 @@ import {
   Icon,
   PokemonName,
   PokemonId,
+  PokemonInfosContainer,
+  PokemonInfosWrap,
   PokemonInfos,
   PokemonMoves,
   PokemonMovesContainer,
@@ -72,19 +74,29 @@ export default function PokePage(): unknown {
           }}
         />
         <PokemonName>{pokeInfos.name}</PokemonName>
-        <PokemonId>#{String(pokeInfos.id).padStart(3, '0')}</PokemonId>
       </Header>
       <Body>
         <PokeImageContainer>
           <PokeImageBackground src={background.src} />
           <PokeImageSprite src={pokeImage} alt="" />
         </PokeImageContainer>
-        <PokemonInfos>
+        <PokemonInfosContainer>
           <h1>Informações Básicas</h1>
-          <p>Altura: {pokeInfos.height / 10}m</p>
-          <p>Peso: {pokeInfos.weight / 10} Kg</p>
-          <p>EXP ao derrotar: {pokeInfos.base_experience}</p>
-        </PokemonInfos>
+          <PokemonInfosWrap>
+            <PokemonInfos>
+              <span>Nº: </span>#{String(pokeInfos.id).padStart(3, '0')}
+            </PokemonInfos>
+            <PokemonInfos>
+              <span>EXP ao derrotar:</span> {pokeInfos.base_experience}
+            </PokemonInfos>
+            <PokemonInfos>
+              <span>Altura:</span> {pokeInfos.height / 10}m
+            </PokemonInfos>
+            <PokemonInfos>
+              <span>Peso:</span> {pokeInfos.weight / 10} Kg
+            </PokemonInfos>
+          </PokemonInfosWrap>
+        </PokemonInfosContainer>
         <PokemonAbilitiesContainer>
           <h1>Habilidades</h1>
           <PokemonAbilitiesWrap>
