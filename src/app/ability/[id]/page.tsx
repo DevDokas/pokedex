@@ -2,10 +2,11 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import path from 'path';
+import { Container } from '@/components/pageAbility';
 
 export default function Ability(): any {
   const [abilityInfos, setAbilityInfos] = useState<any>([]);
+  const [abilityDescription, setAbilityDescription] = useState<any>();
   const pathname = usePathname();
   const splitPathname = pathname.split('/');
   const abilityName = splitPathname[2];
@@ -21,14 +22,19 @@ export default function Ability(): any {
     Promise.all(abilityPromises).then((ability) => {
       const abilityInfosList = ability[0];
       setAbilityInfos(abilityInfosList);
+      setAbilityDescription(abilityInfosList.effect_entries[0].effect);
     });
   }, [abilityName]);
 
   console.log(abilityInfos);
+
   return (
-    <div>
-      <p>oi</p>
-      {abilityName}
-    </div>
+    <Container>
+      <header>
+        {abilityName}
+        {abilityInfos.id}
+      </header>
+      {abilityDescription}
+    </Container>
   );
 }
