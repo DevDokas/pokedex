@@ -45,9 +45,7 @@ export default function Ability(): any {
       );
       try {
         setAbilityDescription(abilityDescriptionFiltered[0].effect);
-      } catch (e) {
-        console.log(e);
-      }
+      } catch (e) {}
     });
   }, [abilityName, abilityDescriptionFiltered]);
 
@@ -56,8 +54,6 @@ export default function Ability(): any {
   const filteredPokemons = abilityPokemons.filter(
     (e: any) => e.pokemon.url.split('/')[6] <= 150
   );
-
-  console.log(abilityDescription);
 
   return (
     <Container>

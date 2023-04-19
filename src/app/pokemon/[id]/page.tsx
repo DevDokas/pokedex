@@ -100,7 +100,7 @@ export default function PokePage(): unknown {
                   }}
                   key={i}
                 >
-                  {skills.ability.name}
+                  {skills.ability.name.replace('-', ' ')}
                 </PokemonAbility>
               );
             })}
