@@ -50,7 +50,7 @@ export default function Home(): any {
 
     const pokemonPromises = [];
 
-    for (let i = 1; i <= 905; i++) {
+    for (let i = 1; i <= 150; i++) {
       pokemonPromises.push(
         fetch(getPokemonUrl(i)).then(async (res) => res.json())
       );
