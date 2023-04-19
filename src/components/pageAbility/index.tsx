@@ -45,14 +45,53 @@ export const AbilityName = styled.h1`
 export const AbilityID = styled.h3``;
 
 export const Body = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5vh;
   margin-top: 12.5vh;
+  padding: 2vh;
 `;
 
 export const DescriptionContainer = styled.p`
   padding: 2vh;
   font-size: 2.5vh;
+  font-weight: 600;
   background-color: ${secondaryColor};
-  width: 90%;
+  color: ${terciaryColor};
+  width: 90vw;
+  border: 0;
+  border-radius: 1vh;
+  text-align: center;
+  line-height: 3.5vh;
+  letter-spacing: 0.1vw;
 `;
 
-export const PokemonsContainer = styled.div``;
+export const PokemonsContainer = styled.div`
+  text-align: center;
+  background-color: ${secondaryColor};
+  color: ${terciaryColor};
+  padding: 2vh;
+  width: 90vw;
+  border: 0;
+  border-radius: 1vh;
+
+  h1 {
+    font-size: 2.7vh;
+  }
+`;
+
+export const Pokemon = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: 5vh;
+  align-items: center;
+  border-bottom: 1px solid ${terciaryColor};
+`;
+
+export const PokemonName = styled.p`
+  font-size: 2.5vh;
+  text-transform: capitalize;
+`;
+
+export const PokemonID = styled.p``;

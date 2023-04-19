@@ -11,7 +11,10 @@ import {
   AbilityID,
   Body,
   DescriptionContainer,
-  PokemonsContainer
+  PokemonsContainer,
+  Pokemon,
+  PokemonName,
+  PokemonID
 } from '@/components/pageAbility';
 
 export default function Ability(): any {
@@ -52,7 +55,7 @@ export default function Ability(): any {
   // TODO: Adicionar todos os 1008 pokemons a lista apos cache
 
   const filteredPokemons = abilityPokemons.filter(
-    (e: any) => e.pokemon.url.split('/')[6] <= 150
+    (e: any) => e.pokemon.url.split('/')[6] <= 386
   );
 
   return (
@@ -70,18 +73,22 @@ export default function Ability(): any {
       <Body>
         <DescriptionContainer>{abilityDescription}</DescriptionContainer>
         <PokemonsContainer>
+          <h1>Pokemons com esta habilidade : </h1>
+          <br />
           {filteredPokemons.map((pokemons: any, i: any) => {
             const pokeId = pokemons.pokemon.url.split('/')[6];
             return (
-              <div
+              <Pokemon
                 key={i}
                 onClick={() => {
                   router.push(`pokemon/${pokeId}`);
                 }}
               >
-                {pokemons.pokemon.name.replace('-', ' ')}
-                {pokeId}
-              </div>
+                <PokemonName>
+                  {pokemons.pokemon.name.replace('-', ' ')}
+                </PokemonName>
+                <PokemonID>#{String(pokeId).padStart(3, '0')}</PokemonID>
+              </Pokemon>
             );
           })}
         </PokemonsContainer>

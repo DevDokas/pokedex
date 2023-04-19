@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import pokeBackground from '@/assets/background.png';
 import icon from '@/assets/icon.png';
@@ -50,7 +50,7 @@ export default function Home(): any {
 
     const pokemonPromises = [];
 
-    for (let i = 1; i <= 150; i++) {
+    for (let i = 1; i <= 386; i++) {
       pokemonPromises.push(
         fetch(getPokemonUrl(i)).then(async (res) => res.json())
       );
