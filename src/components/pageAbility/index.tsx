@@ -55,7 +55,7 @@ export const Body = styled.section`
 
 export const DescriptionContainer = styled.p`
   padding: 2vh;
-  font-size: 2.5vh;
+  font-size: 3vh;
   font-weight: 600;
   background-color: ${secondaryColor};
   color: ${terciaryColor};
@@ -68,6 +68,7 @@ export const DescriptionContainer = styled.p`
 `;
 
 export const PokemonsContainer = styled.div`
+  position: relative;
   text-align: center;
   background-color: ${secondaryColor};
   color: ${terciaryColor};
@@ -77,7 +78,8 @@ export const PokemonsContainer = styled.div`
   border-radius: 1vh;
 
   h1 {
-    font-size: 2.7vh;
+    font-size: 3vh;
+    width: 100%;
   }
 `;
 
@@ -90,8 +92,11 @@ export const Pokemon = styled.div`
 `;
 
 export const PokemonName = styled.p`
-  font-size: 2.5vh;
+  font-size: 3vh;
   text-transform: capitalize;
+  font-weight: 600;
 `;
 
-export const PokemonID = styled.p``;
+export const PokemonID = styled.p`
+  font-size: 2.5vh;
+`;

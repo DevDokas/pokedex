@@ -1,5 +1,5 @@
 'use client';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import icon from '@/assets/icon.png';
@@ -9,13 +9,17 @@ import {
   Body,
   Icon,
   MoveName,
-  MoveID
+  MoveID,
+  MoveEffect,
+  MoveInfosContainer,
+  MoveInfo
 } from '@/components/pageMoves';
 
 export default function MovePage(): any {
   const [moveInfos, setMoveInfos] = useState<any>([]);
   const [moveDetails, setMoveDetails] = useState<any>([]);
   const [moveDamageClass, setMoveDamageClass] = useState<any>([]);
+  const router = useRouter();
   const pathname = usePathname();
   const splitPathname = pathname.split('/');
   const moveName = splitPathname[2];
@@ -40,19 +44,39 @@ export default function MovePage(): any {
   return (
     <Container>
       <Header>
-        <Icon src={icon.src} alt="" />
+        <Icon
+          src={icon.src}
+          onClick={() => {
+            router.push('/');
+          }}
+        />
         <MoveName>{moveName.replace('-', ' ')}</MoveName>
         <MoveID>#{String(moveInfos.id).padStart(3, '0')}</MoveID>
       </Header>
       <Body>
-        <h1>Efeito: {moveDetails}</h1>
-        <div>
-          <h1>Dano: {moveInfos.power}</h1>
-          <h1>Tipo de Dano: {moveDamageClass}</h1>
-          <h1>Precisao: {moveInfos.accuracy}</h1>
-          <h1>PPs: {moveInfos.pp}</h1>
-          <h1>Prioridade: {moveInfos.priority}</h1>
-        </div>
+        <MoveEffect>Efeito: {moveDetails}</MoveEffect>
+        <MoveInfosContainer>
+          <MoveInfo>
+            <span>Dano: </span>
+            {moveInfos.power}
+          </MoveInfo>
+          <MoveInfo>
+            <span>Tipo de Dano: </span>
+            {moveDamageClass}
+          </MoveInfo>
+          <MoveInfo>
+            <span>Precisao: </span>
+            {moveInfos.accuracy}
+          </MoveInfo>
+          <MoveInfo>
+            <span>PPs: </span>
+            {moveInfos.pp}
+          </MoveInfo>
+          <MoveInfo>
+            <span>Prioridade: </span>
+            {moveInfos.priority}
+          </MoveInfo>
+        </MoveInfosContainer>
       </Body>
     </Container>
   );

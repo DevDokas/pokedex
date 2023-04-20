@@ -27,6 +27,18 @@ describe('Test Pokemon Page', () => {
   });
 
   it('Should render the page', () => {
-    cy.get('.sc-jMAIzZ', { timeout: 15000 }).should('be.visible');
+    cy.get('.sc-hhGHuG > :nth-child(1)', { timeout: 15000 }).should(
+      'be.visible'
+    );
+  });
+});
+
+describe('Test Ability Page', () => {
+  beforeEach('Visit Ability Page', () => {
+    cy.visit('localhost:3000/ability/50');
+  });
+
+  it('Should render the page', () => {
+    cy.get('.sc-jhSXcr', { timeout: 15000 }).should('be.visible');
   });
 });

@@ -73,7 +73,7 @@ export default function Ability(): any {
       <Body>
         <DescriptionContainer>{abilityDescription}</DescriptionContainer>
         <PokemonsContainer>
-          <h1>Pokemons com esta habilidade : </h1>
+          <h1>Pokemons com a habilidade: </h1>
           <br />
           {filteredPokemons.map((pokemons: any, i: any) => {
             const pokeId = pokemons.pokemon.url.split('/')[6];
