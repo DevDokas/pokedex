@@ -27,7 +27,6 @@ import {
 
 export default function PokePage(): unknown {
   const [pokeInfos, setPokeInfos] = useState<any>([]);
-  const [pokeForms, setPokeForms] = useState<any>([]);
   const [pokeAbilities, setPokeAbilities] = useState<any>([]);
   const [pokeMoves, setPokeMoves] = useState<any>([]);
   const [pokeImage, setPokeImage] = useState<any>([]);
@@ -52,7 +51,6 @@ export default function PokePage(): unknown {
       setPokeAbilities(Pokemon.abilities);
       setPokeMoves(Pokemon.moves);
       setPokeImage(Pokemon.sprites.front_default);
-      setPokeForms(Pokemon.forms);
     });
   }, [id, pokeInfos, pokeImage, pokeMoves]);
 

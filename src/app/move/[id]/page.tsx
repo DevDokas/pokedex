@@ -25,7 +25,7 @@ export default function MovePage(): any {
   console.log(moveInfos);
   return (
     <div>
-      <h1>{moveName}</h1>
+      <h1>{moveName.replace('-', ' ')}</h1>
     </div>
   );
 }

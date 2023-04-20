@@ -48,6 +48,7 @@
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/triple-slash-reference": "off",
         "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-shadow": "off",
         "jsx-a11y/click-events-have-key-events": "off",
